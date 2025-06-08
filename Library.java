@@ -11,7 +11,7 @@ public class Library {
         this.books = new ArrayList<>();
     }
 
-    // Method for students to implement: Add a book to the library
+    //  Add a book to the library
     public void addBook(Book book) {
         if (book != null) {
             this.books.add(book);
@@ -20,20 +20,22 @@ public class Library {
         }
     }
 
-    // Method for students to implement: Find a book by its title
+    /**
+     *  Method for students to implement: Find a book by its title
+     *  Go over all books and return the book which has the same title as the given title
+     *  Use the method below this one for an example of how to go over all books.
+     * @param title
+     * @return
+     */
     public Book findBookByTitle(String title) {
-        if (title == null || title.isEmpty()) {
-            return null;
-        }
-        for (Book book : this.books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                return book;
-            }
-        }
+        
         return null; // Placeholder
     }
 
-    // Method for students to implement: Display all books in the library
+    /**
+     * Example method: shows how to iterate all books in the library.
+     * Displays all books
+     */
     public void displayAllBooks() {
         if (this.books.isEmpty()) {
             System.out.println("The library has no books.");
