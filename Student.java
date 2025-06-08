@@ -13,27 +13,22 @@ public class Student {
         this.borrowedBooks = new ArrayList<>();
     }
 
-    // Method for students to implement: Borrow a book from the library
+    /**
+     * Borrow Book Mehod:
+     * 1) find the book by its title
+     * 1.1) If the book is not in the library, print a message and exit.
+     * 2) if the book is borrowed:
+     * 2.1) print the name of the borrower
+     * 2.1) If you are the borrower, print another message to say you are the borrower
+     * 3) If the book is not borrowed, add it to the library and set its owner to be you.
+     * @param book
+     * @param library
+     */
     public void borrowBook(Book book, Library library) {
-        if (book == null || library == null) {
-            System.out.println("Invalid book or library.");
-            return;
-        }
-        Book libraryBook = library.findBookByTitle(book.getTitle());
-        if (libraryBook == null) {
-            System.out.println("\"" + book.getTitle() + "\" not found in the library.");
-        } else if (libraryBook.isBorrowed()) {
-            System.out.println("\"" + book.getTitle() + "\" is already borrowed by " + libraryBook.getOwner().name + ".");
-        } else if (this.borrowedBooks.contains(libraryBook)) {
-            System.out.println(this.name + " has already borrowed \"" + book.getTitle() + "\"."); // Should ideally not happen if isBorrowed is checked first
-        } else {
-            this.borrowedBooks.add(libraryBook);
-            libraryBook.setOwner(this); // Set this student as the owner
-            System.out.println(this.name + " successfully borrowed \"" + book.getTitle() + "\".");
-        }
+        
     }
 
-    // Method for students to implement: Return a book to the library
+    // Return a book to the library
     public void returnBook(Book book, Library library) {
         if (book == null || library == null) {
             System.out.println("Invalid book or library for return.");
